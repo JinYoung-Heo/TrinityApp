@@ -22,7 +22,5 @@ class ViewPagerRefrigeratorFragment : Fragment(){
         val main_activity = activity as MainActivity
         val adapter = main_activity.getAdapter(1)
         refrigerator_recycler_view.adapter = adapter
-        Log.d("MSG", "Refrigerator adapter attached")
-        Log.d("MSG", "Adapter's place is " + adapter.getFoodPlaceName())
     }
 }

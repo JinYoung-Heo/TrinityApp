@@ -30,7 +30,6 @@ class MainFragment : Fragment() {
 
         val main_activity = activity as MainActivity
         var adapterList : MutableList<RecyclerViewAdapter> = main_activity.getAdapterList()
-//        recycler_view.adapter = adapter // adapter와 recycler view 연동(갱신은 자동으로)
         trashcan_state = 0
         for(i in 0..2) {
             listOfPositionList[i].clear()
@@ -46,18 +45,12 @@ class MainFragment : Fragment() {
                 override fun onClick(v: View, position: Int) {
                     Toast.makeText(context, position.toString(), Toast.LENGTH_SHORT).show()
                     if (trashcan_state == 1) {
-                        Log.d("MSG", position.toString())
-                        Log.d(
-                            "MSG",
-                            "Contacts list size = " + main_activity.getContactsListSize(i).toString()
-                        )
                         v.check_box.toggle()
                         if (v.check_box.isChecked) {
                             listOfPositionList[i].add(position)
                         } else {
                             listOfPositionList[i].remove(position)
                         }
-                        Log.d("MSG", "Integer list size = " + listOfPositionList[i].size.toString())
                     }
                 }
             })
@@ -68,18 +61,17 @@ class MainFragment : Fragment() {
                 trashcan_btn.setBackgroundColor(Color.parseColor("#ff0000"))
                 ContactsViewHolder.activateCheckbox()
                 for(i in 0..2) {
-                    adapterList[i].notifyDataSetChanged() //리스트뷰 갱신 - 뷰홀더에 있는 bind 함수를 호출하기 위함
+                    adapterList[i].notifyDataSetChanged() // Checkbox를 표시하기위함
                 }
                 trashcan_state = 1
             }
             else {
                 for(i in 0..2) {
-//                    listOfPositionList[i].reverse()
+                    Log.d("MSG", i.toString()+": "+listOfPositionList[i].toString())
                     adapterList[i].setDeleteIdList(listOfPositionList[i])
                 }
 
                 main_activity.removeDB()
-                main_activity.removeList()
 
                 trashcan_state = 0
                 ContactsViewHolder.inActivateCheckbox()
@@ -88,7 +80,8 @@ class MainFragment : Fragment() {
                 }
                 trashcan_btn.setBackgroundColor(Color.parseColor("#ffffff"))
                 for(i in 0..2) {
-                    adapterList[i].notifyDataSetChanged() //리스트뷰 갱신 - 뷰홀더에 있는 bind 함수를 호출하기 위함
+                    adapterList[i].clearFoodId()
+                    adapterList[i].notifyDataSetChanged() // checkbox 다시 안보이도록 하기위해
                 }
             }
         }

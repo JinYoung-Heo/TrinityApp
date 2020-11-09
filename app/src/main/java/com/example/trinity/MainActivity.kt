@@ -18,99 +18,75 @@ class MainActivity : AppCompatActivity() {
         //초기화
         db = AppDatabase.getInstance(this)
 
+        setFoodListByDB()
+        getFoodsAndMakeAdapters()
+    }
+    fun setFoodListByDB() {
         //이전에 저장한 내용 모두 불러와서 추가하기
         val savedContacts = db!!.contactsDao().getAll()
-        if (savedContacts.isNotEmpty()) {
-                foodList.addAll(savedContacts)
+        if (foodList.size != 0) {
+            foodList.clear()
         }
-
+        if (savedContacts.isNotEmpty()) {
+            foodList.addAll(savedContacts)
+        }
+    }
+    fun getFoodsAndMakeAdapters() {
+        var foods: MutableList<Contacts>
         for(foodPlace in foodPlaceList) {
-            foodList = sortingFood(foodList, foodPlace)
-            adapterList.add(RecyclerViewAdapter(foodList, foodPlace))
+            foods = getFood(foodList, foodPlace)
+            adapterList.add(RecyclerViewAdapter(foods, foodPlace))
         }
     }
 
-    fun sortingFood(foodList : MutableList<Contacts>, foodPlace : String) : MutableList<Contacts> {
-        val foodList = foodList.sortedWith(Comparator<Contacts>{ a, b ->
-            when {
-                a.location == foodPlace -> -1
-                else -> 1
-            }
-        }).toMutableList()
-        return foodList
+    fun getFood(foodList: MutableList<Contacts>, foodPlace: String): MutableList<Contacts> {
+        val foods = mutableListOf<Contacts>()
+        for(food in foodList) {
+            if(food.location == foodPlace) foods.add(food)
+        }
+        return foods
     }
 
     fun addDB(contact : Contacts) {
         db?.contactsDao()?.insertAll(contact) //DB에 추가
     }
 
-    fun getDB(place: Int) : List<Contacts> {
-        return db!!.contactsDao().getAll()
-    }
-
-    fun addList(contact : Contacts, place: String, index: Int) {
-        foodList.add(contact)
-        foodList = sortingFood(foodList, place)
-        adapterList[index] = RecyclerViewAdapter(foodList, place)
-    }
-
-    fun getList(place: Int) : MutableList<Contacts> {
-        return foodList
+    fun addList(food : Contacts, place: String, index: Int) {
+        foodList.add(0, food)
+        val foods = getFood(foodList, place)
+        adapterList[index] = RecyclerViewAdapter(foods, place)
     }
 
     fun removeDB() {
-        // TODO
         val deleteFoodIds = mutableListOf<Long>()
         for(i in 0..2) {
             for(foodId in adapterList[i].getDeleteFoodIds()) {
                 deleteFoodIds.add(foodId)
             }
         }
-        deleteFoodIds.sort()
         if(deleteFoodIds.size > 0) {
-            var j = 0
-            for (food in foodList) {
-                if (food.id == deleteFoodIds[j]) {
-                    db?.contactsDao()?.delete(contacts = food) //DB에서 삭제
-                    j++
-                    if (j == deleteFoodIds.size) break
+            for(id in deleteFoodIds) {
+                for(food in foodList) {
+                    if (id == food.id) {
+                        db?.contactsDao()?.delete(contacts = food) //DB에서 삭제
+                        break
+                    }
                 }
             }
         }
-//        val contacts = foodList[position]
-//        db?.contactsDao()?.delete(contacts = contacts) //DB에서 삭제
-    }
-
-    fun removeList() {
-        val deleteFoodIds = mutableListOf<Long>()
+        setFoodListByDB()
+        var foods: MutableList<Contacts>
         for(i in 0..2) {
-            for(foodId in adapterList[i].getDeleteFoodIds()) {
-                deleteFoodIds.add(foodId)
-            }
-        }
-        deleteFoodIds.sort()
-        if(deleteFoodIds.size > 0) {
-            var j = 0
-            for (food in foodList) {
-                if (food.id == deleteFoodIds[j]) {
-                    foodList.remove(food)
-                    j++
-                    if (j == deleteFoodIds.size) break
-                }
-//            foodList.removeAt(position) //리스트에서 삭제
-            }
+            foods = getFood(foodList, foodPlaceList[i])
+            adapterList[i].setItemList(foods)
         }
     }
 
-    fun getAdapter(place: Int) : RecyclerViewAdapter {
+    fun getAdapter(place: Int): RecyclerViewAdapter {
         return adapterList[place]
     }
 
-    fun getAdapterList() : MutableList<RecyclerViewAdapter> {
+    fun getAdapterList(): MutableList<RecyclerViewAdapter> {
         return adapterList
-    }
-
-    fun getContactsListSize(place: Int) : Int {
-        return foodList.size
     }
 }

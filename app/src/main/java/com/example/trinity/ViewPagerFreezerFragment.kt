@@ -24,7 +24,5 @@ class ViewPagerFreezerFragment : Fragment(){
         val adapter = main_activity.getAdapter(2)
 
         freezer_recycler_view.adapter = adapter
-        Log.d("MSG", "Freezer adapter attached")
-        Log.d("MSG", "Adapter's place is " + adapter.getFoodPlaceName())
     }
 }

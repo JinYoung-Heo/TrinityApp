@@ -47,28 +47,6 @@ class AddItemFragment : Fragment() {
                     main_activity.addList(contact, "freezer", 2) //리스트 추가
                 }
             }
-
-            /*when(food_place) {
-                "0" -> {
-                    main_activity.addDB(contact, 0)
-                    main_activity.addList(contact, 0) //리스트 추가
-                    *//*Log.d("MSG", main_activity.getDB(0).toString())
-                    Log.d("MSG", main_activity.getList(0).toString())*//*
-                }
-                "1" -> {
-                    main_activity.addDB(contact, 1)
-                    main_activity.addList(contact, 1) //리스트 추가
-                    *//*Log.d("MSG", main_activity.getDB(1).toString())
-                    Log.d("MSG", main_activity.getList(1).toString())*//*
-                }
-                "2" -> {
-                    main_activity.addDB(contact, 2)
-                    main_activity.addList(contact, 2) //리스트 추가
-                    *//*Log.d("MSG", main_activity.getDB(2).toString())
-                    Log.d("MSG", main_activity.getList(2).toString())*//*
-                }
-            }*/
-
             findNavController().navigate(R.id.action_addItemFragment_to_mainFragment) // 이동
         }
     }

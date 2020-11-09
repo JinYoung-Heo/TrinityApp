@@ -23,7 +23,5 @@ class ViewPagerShelfFragment : Fragment(){
         val main_activity = activity as MainActivity
         val adapter = main_activity.getAdapter(0)
         shelf_recycler_view.adapter = adapter
-        Log.d("MSG", "Shelf adapter attached")
-        Log.d("MSG", "Adapter's place is " + adapter.getFoodPlaceName())
     }
 }
