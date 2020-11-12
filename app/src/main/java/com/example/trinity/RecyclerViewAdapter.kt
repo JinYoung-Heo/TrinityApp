@@ -1,5 +1,6 @@
 package com.example.trinity
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,8 +24,9 @@ class RecyclerViewAdapter(private var itemList : List<Contacts>, val _food_place
         return listOfDeleteFoodId
     }
 
-    fun setDeleteIdList(listOfDeletePosition : MutableList<Int>) {
+    fun setDeleteIdList(listOfDeletePosition: MutableList<Int>) {
         for(position in listOfDeletePosition) {
+            Log.d("MSG", "(at RecyclerViewAdapter) Delete Id: " + listOfFoodId[position])
             listOfDeleteFoodId.add(listOfFoodId[position])
         }
     }
@@ -44,7 +46,7 @@ class RecyclerViewAdapter(private var itemList : List<Contacts>, val _food_place
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)
         }
-
+        Log.d("MSG", "(Binding item) name: " + item.name + ", id: " + item.id)
         listOfFoodId.add(item.id)
         holder.apply {
             bind(item)

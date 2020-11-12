@@ -34,17 +34,17 @@ class AddItemFragment : Fragment() {
                 radio_btn1.id -> {
                     contact = Contacts(0, food_name, "shelf") //Contacts 생성
                     main_activity.addDB(contact)
-                    main_activity.addList(contact, "shelf", 0) //리스트 추가
+                    main_activity.addListToAdapter("shelf", 0) //리스트 추가
                 }
                 radio_btn2.id -> {
                     contact = Contacts(0, food_name, "refrigerator") //Contacts 생성
                     main_activity.addDB(contact)
-                    main_activity.addList(contact, "refrigerator", 1) //리스트 추가
+                    main_activity.addListToAdapter("refrigerator", 1) //리스트 추가
                 }
                 radio_btn3.id -> {
                     contact = Contacts(0, food_name, "freezer") //Contacts 생성
                     main_activity.addDB(contact)
-                    main_activity.addList(contact, "freezer", 2) //리스트 추가
+                    main_activity.addListToAdapter("freezer", 2) //리스트 추가
                 }
             }
             findNavController().navigate(R.id.action_addItemFragment_to_mainFragment) // 이동

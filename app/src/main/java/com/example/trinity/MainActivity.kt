@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity() {
         db?.contactsDao()?.insertAll(contact) //DB에 추가
     }
 
-    fun addList(food : Contacts, place: String, index: Int) {
-        foodList.add(0, food)
+    fun addListToAdapter(place: String, index: Int) {
+        setFoodListByDB()
         val foods = getFood(foodList, place)
         adapterList[index] = RecyclerViewAdapter(foods, place)
     }

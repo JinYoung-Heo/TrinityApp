@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.list_foods.view.*
 
@@ -30,20 +31,26 @@ class MainFragment : Fragment() {
 
         val main_activity = activity as MainActivity
         var adapterList : MutableList<RecyclerViewAdapter> = main_activity.getAdapterList()
+
         trashcan_state = 0
         for(i in 0..2) {
             listOfPositionList[i].clear()
         }
 
         listener(main_activity, adapterList)
+
         view_pager.adapter = ViewPagerAdapter(childFragmentManager, lifecycle)
+
+        TabLayoutMediator(tabLayoutId, view_pager){ tab, position ->
+            tab.text = tabTextList[position]
+        }.attach()
     }
 
     fun listener(main_activity: MainActivity, adapterList: MutableList<RecyclerViewAdapter>) {
         for(i in 0..2) {
             adapterList[i].setItemClickListener(object : RecyclerViewAdapter.OnItemClickListener {
                 override fun onClick(v: View, position: Int) {
-                    Toast.makeText(context, position.toString(), Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(context, position.toString(), Toast.LENGTH_SHORT).show()
                     if (trashcan_state == 1) {
                         v.check_box.toggle()
                         if (v.check_box.isChecked) {
@@ -67,7 +74,7 @@ class MainFragment : Fragment() {
             }
             else {
                 for(i in 0..2) {
-                    Log.d("MSG", i.toString()+": "+listOfPositionList[i].toString())
+                    Log.d("MSG", i.toString() + ": " + listOfPositionList[i].toString())
                     adapterList[i].setDeleteIdList(listOfPositionList[i])
                 }
 
