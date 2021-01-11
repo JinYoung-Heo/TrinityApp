@@ -10,5 +10,3 @@
 <img src="https://i.ibb.co/17xY3Kp/9.jpg" width="540px" height="540px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
 <img src="https://i.ibb.co/d5SMShh/10.jpg" width="540px" height="540px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
 <img src="https://i.ibb.co/ZdgPGmQ/11.jpg" width="540px" height="540px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
-<img src="https://i.imgur.com/U96z3uy.jpg" width="900px" height="500px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
-<img src="https://i.imgur.com/wjEd0fd.jpg" width="900px" height="500px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
