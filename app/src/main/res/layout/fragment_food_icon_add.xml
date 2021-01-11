@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#95aed7">
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/main_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="70dp" />
+
+    <TextView
+        android:id="@+id/add_main_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="재료 등록"
+        android:textColor="#333333"
+        app:layout_constraintTop_toTopOf="@id/view1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="19dp"
+        />
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="@+id/view1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:background="@android:color/transparent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="19dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_recyclerview_shopping_cart"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/add_main_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:context=".fragment.ShoppingCartFragment"
+        />
+
+    <Button
+        android:id="@+id/add_food_icon_btn"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="13dp"
+        android:text="등록하기"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:background="@drawable/button_background2"
+        android:textAlignment="center"
+        android:gravity="center"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

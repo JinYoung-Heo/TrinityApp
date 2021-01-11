@@ -1,29 +1,86 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+
+        <!-- Change Overflow Menu ListView Item Height & Property -->
+        <item name="android:listPreferredItemHeightSmall">30dp</item>
+        <item name="android:listPreferredItemPaddingLeft">5dp</item>
+        <item name="android:listPreferredItemPaddingRight">5dp</item>
+
+        <item name="android:textAppearanceLargePopupMenu">@style/myPopupMenuTextAppearanceLarge</item>
 
     </style>
 
 
-    <style name="CustomActionBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:windowActionBarOverlay">true</item>
-        <!-- Support library compatibility -->
-        <item name="windowActionBarOverlay">true</item>
+    <style name="DatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#95aed7</item>
     </style>
+
+
+
+    <!-- Splash Screen theme.-->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+
+    <!-- Change Overflow Menu ListView Divider Property -->
+    <style name="PopupMenuListView" parent="@android:style/Widget.Holo.ListView.DropDown">
+        <item name="android:divider">#FF0000</item>
+        <item name="android:dividerHeight">2dp</item>
+    </style>
+
+    <!-- Change Overflow Menu ListView Text Size and Text Size -->
+    <style name="PopupMenuTextView" parent="@style/android:Theme.Holo.Light">
+        <item name="android:textColor">#00FF00</item>
+        <item name="android:textSize">5sp</item>
+    </style>
+
+    <style name="EditTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">#95aed7</item>
+    </style>
+
+    <!-- Change Overflow Menu Background -->
+    <style name="PopupMenu" parent="android:Widget.Holo.Light.ListPopupWindow">
+        <item name="android:popupBackground">@android:color/white</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="PopupMenu2" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@android:color/white</item>
+        <item name="android:textColor">#FF01F0</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="myPopupMenuTextAppearanceSmall" parent="@android:style/TextAppearance.DeviceDefault.Widget.PopupMenu.Small">
+        <item name="android:textColor">#545656</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="myPopupMenuTextAppearanceLarge" parent="@android:style/TextAppearance.DeviceDefault.Widget.PopupMenu.Large">
+        <item name="android:textColor">#333333</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 
     <style name="TabTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#f5a623</item>                                <!-- 배경 -->
 
-        <item name="android:textColorPrimary">@android:color/white</item>       <!-- 탭바 선택된 텍스트 -->
+        <item name="android:textColorPrimary">#333333</item>       <!-- 탭바 선택된 텍스트 -->
+        <item name="android:textStyle">bold</item>
         <item name="android:textColorSecondary">@android:color/darker_gray</item>     <!-- 탭바 텍스트 -->
+        <item name="android:listPreferredItemHeightSmall">30dp</item>
 
-        <item name="colorAccent">@android:color/transparent</item>                    <!-- 하단 움직이는 바 색-->
+        <item name="colorAccent">#333333</item>                    <!-- 하단 움직이는 바 색-->
     </style>
-
 </resources>

@@ -5,27 +5,140 @@
     app:startDestination="@id/mainFragment">
 
     <fragment
-        android:id="@+id/addItemFragment"
-        android:label="add_item_fragment"
-        android:name="com.example.trinity.AddItemFragment">
+        android:id="@+id/searchFragment"
+        android:label="search_fragment"
+        android:name="com.mypackage.naengbiseo.fragment.SearchFragment"/>
 
+    <fragment
+        android:id="@+id/foodIconAddFragment"
+        android:label="food_icon_add_fragment"
+        android:name="com.mypackage.naengbiseo.fragment.FoodIconAddFragment">
+
+        <argument
+            android:name="a1"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"
+            />
         <action
-            android:id="@+id/action_addItemFragment_to_mainFragment"
-            app:destination="@id/mainFragment"
-            app:popUpTo="@id/mainFragment"
-            app:popUpToInclusive="true"/>
-
+            android:id="@+id/action_foodIconAddFragment_to_foodAddFragment"
+            app:popUpTo="@id/foodIconAddFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/foodAddFragment"
+            />
+        <action
+            android:id="@+id/action_foodIconAddFragment_to_itemStatusFragment"
+            app:popUpTo="@id/foodIconAddFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/itemStatusFragment"
+            />
     </fragment>
+
+    <fragment
+        android:id="@+id/itemStatusFragment"
+        android:label="item_status_fragment"
+        android:name="com.mypackage.naengbiseo.fragment.ItemStatusFragment"
+        >
+        <action
+            android:id="@+id/action_itemStatusFragment_to_foodIconAddFragment"
+            app:destination="@id/foodIconAddFragment"
+            />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/foodAddFragment"
+        android:label="food_add_fragment"
+        android:name="com.mypackage.naengbiseo.fragment.FoodAddFragment"
+        >
+        <action
+            android:id="@+id/action_foodAddFragment_to_foodIconAddFragment"
+            app:destination="@id/foodIconAddFragment"
+            />
+        <action
+            android:id="@+id/action_foodAddFragment_to_mainFragment"
+            app:popUpTo="@id/foodAddFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/mainFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/coldFragment"
+        android:label="cold_fragment"
+        android:name="com.mypackage.naengbiseo.fragment.ColdFragment"
+        />
+
+    <fragment
+        android:id="@+id/coolFragment"
+        android:label="cool_fragment"
+        android:name="com.mypackage.naengbiseo.fragment.CoolFragment"
+        />
+    <fragment
+        android:id="@+id/shelfFragment"
+        android:label="shelf_fragment"
+        android:name="com.mypackage.naengbiseo.fragment.ShelfFragment"
+        />
 
     <fragment
         android:id="@+id/mainFragment"
         android:label="main_fragment"
-        android:name="com.example.trinity.MainFragment">
-
+        android:name="com.mypackage.naengbiseo.fragment.BaseMainFragment"
+        >
         <action
-            android:id="@+id/action_mainFragment_to_addItemFragment"
-            app:destination="@id/addItemFragment"/>
+            android:id="@+id/action_mainFragment_to_foodAddFragment"
+            app:destination="@id/foodAddFragment"
+            />
+        <action
+            android:id="@+id/action_mainFragment_to_basketFragment"
+            app:destination="@id/basketFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/shoppingCartFragment"
+        android:label="shopping_cart_fragment"
+        android:name="com.mypackage.naengbiseo.fragment.ShoppingCartFragment">
+        <action
+            android:id="@+id/action_shoppingCartFragment_to_basketFragment"
+            app:destination="@id/basketFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="false"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/basketFragment"
+        android:label="basket_fragment"
+        android:name="com.mypackage.naengbiseo.fragment.BasketFragment">
+        <action
+            android:id="@+id/action_basketFragment_to_shoppingCartFragment"
+            app:destination="@id/shoppingCartFragment"/>
 
     </fragment>
+
+    <fragment
+        android:id="@+id/trashFragment"
+        android:label="trash_fragment"
+        android:name="com.mypackage.naengbiseo.fragment.TrashFragment"
+        />
+
+    <fragment
+        android:id="@+id/alarmFragment"
+        android:label="alarm_Fragment"
+        android:name="com.mypackage.naengbiseo.fragment.AlarmFragment"
+        />
+
+    <fragment
+        android:id="@+id/alarmSettingFragment"
+        android:label="alarm_setting_Fragment"
+        android:name="com.mypackage.naengbiseo.fragment.AlarmSettingFragment"
+        />
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:label="setting_fragment"
+        android:name="com.mypackage.naengbiseo.fragment.SettingFragment"
+        />
+
 
 </navigation>

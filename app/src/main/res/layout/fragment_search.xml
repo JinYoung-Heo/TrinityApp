@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="111.1dp"
+        >
+
+        <ImageButton
+            android:id="@+id/base_back_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            android:background="@android:color/transparent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="@id/search_food_edit_text"
+            app:layout_constraintBottom_toBottomOf="@id/search_food_edit_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="5.6dp"
+            />
+
+        <EditText
+            android:theme="@style/EditTheme"
+            android:id="@+id/search_food_edit_text"
+            android:layout_width="246dp"
+            android:layout_height="38dp"
+            android:textSize="16sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/base_back_button"
+            app:layout_constraintBottom_toBottomOf="@id/base_back_button"
+            android:paddingLeft="13dp"
+            android:textColor="#333333"
+            android:textCursorDrawable="@drawable/text_cursor"
+            android:background="@drawable/search_bar"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="검색"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#333333"
+            android:letterSpacing="0.05"
+            android:lineSpacingExtra="4sp"
+            android:gravity="center_horizontal"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8.1dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cccccccc"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".fragment.SearchFragment" />
+</LinearLayout>
