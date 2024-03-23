@@ -1,3 +1,9 @@
+# Summary
+* Developed an android application that managed foods in your fridge.
+* The main function is to pop up a notification when your food is about to expire. Users can set how early they want to get a notification before its expiration date.
+* Users can also put some foods in the shopping cart before they go grocery shoppping.
+* Moreover, you can search for some recipes through the app.
+
 # 냉비서(냉장고 관리 앱)
 <img src="https://i.ibb.co/5rh726k/1.jpg" width="540px" height="540px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
 <img src="https://i.ibb.co/NndPYjn/2.jpg" width="540px" height="540px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
